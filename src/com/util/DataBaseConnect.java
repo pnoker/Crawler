@@ -16,7 +16,7 @@ public class DataBaseConnect {
 	private PreparedStatement ps = null;
 
 	public DataBaseConnect() {
-		ConfigTool data = new ConfigTool();
+		ReadConfig data = new ReadConfig();
 		try {
 			Class.forName(data.getDriver());
 			conn = DriverManager.getConnection(data.getUrl());
@@ -38,10 +38,10 @@ public class DataBaseConnect {
 		return rs;
 	}
 
-	public int executeUpdate(String ssql) throws SQLException {
+	public int executeUpdate(String sql) throws SQLException {
 		int iupdate = 0;
 		try {
-			iupdate = stmt.executeUpdate(ssql);
+			iupdate = stmt.executeUpdate(sql);
 			return iupdate;
 		} catch (SQLException se) {
 			System.out.println("DataBaseConnect.executeUpdate() ERROR:" + se.getMessage());
@@ -63,7 +63,7 @@ public class DataBaseConnect {
 	}
 
 	public static void main(String[] args) throws SQLException {
-		ConfigTool data = new ConfigTool();
+		ReadConfig data = new ReadConfig();
 		DataBaseConnect conn = new DataBaseConnect();
 		conn.executeQuery(data.getValidationQuery());
 		System.out.println("MySql连接成功！");
