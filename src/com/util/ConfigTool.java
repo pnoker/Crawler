@@ -9,6 +9,9 @@ public class ConfigTool {
 	private String germany;
 	private String switzerland;
 	private String europe;
+	private String driver;
+	private String url;
+	private String validationQuery;
 
 	public ConfigTool() {
 		Map<String, String> config = null;
@@ -23,6 +26,9 @@ public class ConfigTool {
 		this.germany = config.get("germany");
 		this.switzerland = config.get("switzerland");
 		this.europe = config.get("europe");
+		this.driver = config.get("driver");
+		this.url = config.get("url");
+		this.validationQuery = config.get("validationQuery");
 	}
 
 	public String getTaiwan() {
@@ -71,6 +77,30 @@ public class ConfigTool {
 
 	public void setEurope(String europe) {
 		this.europe = europe;
+	}
+
+	public String getDriver() {
+		return driver;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getValidationQuery() {
+		return validationQuery;
+	}
+
+	public void setValidationQuery(String validationQuery) {
+		this.validationQuery = validationQuery;
 	}
 
 }
