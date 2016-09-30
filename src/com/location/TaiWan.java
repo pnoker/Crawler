@@ -20,7 +20,7 @@ public class TaiWan {
 		DataBaseConnect conn = new DataBaseConnect();
 		String sql = "";
 		String[] text = new String[9];
-		Document doc2 = Jsoup.connect(url).timeout(10000).get();
+		Document doc2 = Jsoup.connect(url).timeout(20000).get();
 		Element table = doc2.getElementById("gvEvent");
 		Element tbody = table.select("tbody").first();
 		Elements tr = tbody.select("tr");

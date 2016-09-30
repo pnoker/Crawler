@@ -19,8 +19,35 @@ public class Test {
 	static String url = "http://www.jma.go.jp/jp/quake/quake_local_index.html";
 
 	public static void main(String[] args) throws Exception {
-		BolgBody();
+//		BolgBody();
+		
+//		String mag = "２．７1１２ｑｗ１２212";
+//		System.out.println(mag.split("．"));
+//		float fmag = Float.parseFloat(mag.trim());
+//		double dmag =Double.parseDouble("２．７");
+//		System.out.println(fmag);
+//		System.out.println(dmag);
+		String mag = "２．７";
+		System.out.println(ToDBC(mag));
+//		
 	}
+	
+	public static String ToDBC(String input) {
+        
+
+        char c[] = input.toCharArray();
+        for (int i = 0; i < c.length; i++) {
+          if (c[i] == '\u3000') {
+            c[i] = ' ';
+          } else if (c[i] > '\uFF00' && c[i] < '\uFF5F') {
+            c[i] = (char) (c[i] - 65248);
+
+          }
+        }
+   String returnString = new String(c);
+   
+        return returnString;
+}
 
 	private static void BolgBody() throws IOException {
 		

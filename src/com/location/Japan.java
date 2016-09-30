@@ -17,7 +17,7 @@ public class Japan {
 		String sql = "";
 		StringFormat sf = new StringFormat();
 		String[] text = new String[5];
-		Document doc2 = Jsoup.connect(url).timeout(10000).get();
+		Document doc2 = Jsoup.connect(url).timeout(20000).get();
 		Element info = doc2.getElementById("info");
 		Element table = info.select("table").first();
 		Element tbody = table.select("tbody").first();

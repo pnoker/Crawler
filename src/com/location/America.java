@@ -13,7 +13,7 @@ public class America {
 	public void content(String url) throws Exception {
 		DataBaseConnect conn = new DataBaseConnect();
 		String sql = "";
-		Document doc2 = Jsoup.connect(url).timeout(10000).get();
+		Document doc2 = Jsoup.connect(url).timeout(20000).get();
 		Elements entry = doc2.select("entry");
 		for (int m = 0; m < entry.size(); m++) {
 			String title = entry.get(m).select("title").text();

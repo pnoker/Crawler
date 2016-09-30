@@ -12,7 +12,7 @@ public class Switzerland {
 		DataBaseConnect conn = new DataBaseConnect();
 		String sql = "";
 		String[] text = new String[10];
-		Document doc2 = Jsoup.connect(url).timeout(20000).get();
+		Document doc2 = Jsoup.connect(url).timeout(30000).get();
 		Element table = doc2.getElementsByClass("eq_list").first();
 		Element tbody = table.select("tbody").first();
 		Elements tr = tbody.select("tr");

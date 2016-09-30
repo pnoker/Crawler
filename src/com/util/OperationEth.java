@@ -27,6 +27,7 @@ public class OperationEth {
 				+ "'," + earthQuake.getMag() + ",'" + earthQuake.getDepth() + "','" + earthQuake.getTime() + "')";
 		conn.executeUpdate(sql);
 		conn.free();
+		System.out.println("\n新增一条地震信息:");
 	}
 
 	/**
@@ -47,6 +48,8 @@ public class OperationEth {
 			String depth = rs.getString("depth");
 			if (mag == earthQuake.getMag() && depth.equals(earthQuake.getDepth())) {
 				same = true;
+				System.out.println("\n(" + rs.getString("latitude") + "," + rs.getString("longitude") + ",M "
+						+ rs.getFloat("mag") + "," + rs.getString("depth") + ")与已有的信息重复！");
 			}
 		}
 		conn.free();
@@ -58,8 +61,8 @@ public class OperationEth {
 	 * 
 	 * @param earthQuake
 	 */
-	public void printEth(int i ,EarthQuake earthQuake) {
-		System.out.println(i+" ->[ 地名:" + earthQuake.getPlaceName() + ",纬度:" + earthQuake.getLatitude() + ",经度:"
+	public void printEth(int i, EarthQuake earthQuake) {
+		System.out.println(i + " ->[ 地名:" + earthQuake.getPlaceName() + ",纬度:" + earthQuake.getLatitude() + ",经度:"
 				+ earthQuake.getLongitude() + ",震级:M " + earthQuake.getMag() + ",范围:" + earthQuake.getDepth() + ",时间:"
 				+ earthQuake.getTime() + " ]");
 	}

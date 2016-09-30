@@ -17,6 +17,33 @@ public class EarthQuake {
 	private String depth;
 	private String time;
 
+	/**
+	 * 无参构造函数
+	 */
+	public EarthQuake() {
+		super();
+	}
+
+	/**
+	 * 有参构造函数
+	 * 
+	 * @param placeName
+	 * @param latitude
+	 * @param longitude
+	 * @param mag
+	 * @param depth
+	 * @param time
+	 */
+	public EarthQuake(String placeName, String latitude, String longitude, float mag, String depth, String time) {
+		super();
+		this.placeName = placeName;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.mag = mag;
+		this.depth = depth;
+		this.time = time;
+	}
+
 	public String getLatitude() {
 		return latitude;
 	}

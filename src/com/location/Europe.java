@@ -12,7 +12,7 @@ public class Europe {
 		DataBaseConnect conn = new DataBaseConnect();
 		String sql = "";
 		String[] text = new String[13];
-		Document doc2 = Jsoup.connect(url).timeout(10000).get();
+		Document doc2 = Jsoup.connect(url).timeout(20000).get();
 		Element tbody = doc2.getElementById("tbody");
 		Elements tr = tbody.select("tr");
 		for (int n = 0; n < tr.size(); n++) {
