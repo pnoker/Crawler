@@ -21,10 +21,10 @@ public class Main {
 //		america.content(url.getAmerica());
 //		System.out.print("\n\n********欧洲**********\n");
 //		europe.content(url.getEurope());
-//		System.out.print("\n\n********瑞士**********\n");
-//		switzerland.content(url.getSwitzerland());
-		System.out.print("\n\n********德国**********\n");
-		germany.content(url.getGermany());
+		System.out.print("\n\n********瑞士**********\n");
+		switzerland.content(url.getSwitzerland());
+//		System.out.print("\n\n********德国**********\n");
+//		germany.content(url.getGermany());
 //		System.out.print("\n\n********台湾**********\n");
 //		taiwan.content(url.getTaiwan());
 //		System.out.print("\n\n********日本**********\n");

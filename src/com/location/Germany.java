@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.pojo.EarthQuake;
-import com.util.DataBaseConnect;
 import com.util.OperationEth;
 
 public class Germany {
