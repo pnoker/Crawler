@@ -15,21 +15,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.util.StringFormat;
+
 public class Test {
-	static String url = "http://www.jma.go.jp/jp/quake/quake_local_index.html";
+	static String url = "http://www.jma.go.jp/jp/quake/20160930050604495-300502.html";
 
 	public static void main(String[] args) throws Exception {
-//		BolgBody();
-		
-//		String mag = "２．７1１２ｑｗ１２212";
-//		System.out.println(mag.split("．"));
-//		float fmag = Float.parseFloat(mag.trim());
-//		double dmag =Double.parseDouble("２．７");
-//		System.out.println(fmag);
-//		System.out.println(dmag);
-		String mag = "２．７";
-		System.out.println(ToDBC(mag));
-//		
+		BolgBody();
 	}
 	
 	public static String ToDBC(String input) {
@@ -50,79 +42,23 @@ public class Test {
 }
 
 	private static void BolgBody() throws IOException {
-		
-//		String html = http();
-//		Document doc = Jsoup.parse(html);
-//		Element tbody = doc.select("table").first();
-//		System.out.println(tbody);
-		
-		
-		String[] text = new String[5];
 		Document doc2 = Jsoup.connect(url).timeout(5000).get();
-		Element info = doc2.getElementById("info");
-		Element table = info.select("table").first();
-		Element tbody = table.select("tbody").first();
-		Elements tr = tbody.select("tr");
-		tr.remove(0);
-		for(int m = 0;m<tr.size();m++){
-		Elements td = tr.get(m).select("td");
-		if(td.size()==5){
-			for(int n=0;n<td.size();n++){
-			 text[n] = td.get(n).text();
-			 }
-		}
-		System.out.println("\n第"+(m+1)+"行数据：");
-		 for(String con:text){
-		 System.out.println(con);
-		 }
+		Element table = doc2.getElementById("infobox");
+		Element td = table.select("td").first();
+		Element br =  td.select("br").first();
+		StringFormat sf = new StringFormat();
+		String bw = sf.ToDBC(td.text()).substring(sf.ToDBC(td.text()).indexOf("("),sf.ToDBC(td.text()).indexOf(")")+1);
+		String wei = bw.substring(bw.indexOf("(北緯")+3,bw.indexOf("度、東経"));
+		String jing = bw.substring(bw.indexOf("度、東経")+4,bw.indexOf("度)"));
+		String depth = sf.ToDBC(td.text()).substring(sf.ToDBC(td.text()).indexOf("震源の深さは約")+7,sf.ToDBC(td.text()).indexOf("km"));
+		System.out.println(sf.ToDBC(td.text()));
+		System.out.println(bw);
+		System.out.println(wei);
+		System.out.println(jing);
+		System.out.println(depth);
 	}
 		
 		
-		
-//		Element table = doc2.getElementById("gvEvent");
-//		Element tbody = table.select("tbody").first();
-//		Elements tr = tbody.select("tr");
-//		tr.remove(0);
-//		for(int m = 0;m<tr.size();m++){
-//			Elements td = tr.get(m).select("td");
-//			if(td.size()==9){
-//				for(int n=0;n<td.size();n++){
-//					 text[n] = td.get(n).text();
-//					 }
-//			}
-//			System.out.println("\n第"+(m+1)+"行数据：");
-//			 for(String con:text){
-//			 System.out.println(con);
-//			 }
-//		}
-
-		
-		
-		
-		// Elements tr = tbody.select("tr");
-		// for(int n=0;n<tr.size();n++){
-		// Elements td = tr.get(n).select("td");
-		// if(td.size()==13){
-		// for(int m=0;m<td.size();m++){
-		// text[m] = td.get(m).text();
-		// }
-		// }
-		// System.out.println("\n第"+(n+1)+"行数据：");
-		// for(String con:text){
-		// System.out.println(con);
-		// }
-		// }
-		// for (int n = 0; n < tr.size(); n++) {
-		// Elements td = tr.get(n).select("td");
-		// for (int i = 0; i < 8; i++) {
-		// text[i] = td.get(i).text();
-		// }
-		// System.out.println("\n第"+(n+1)+"行数据：");
-		// for (String con : text) {
-		// System.out.println(con);
-		// }
-		// }
-	}
 
 	public static void article() {
 		Document doc;

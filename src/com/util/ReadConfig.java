@@ -6,6 +6,7 @@ public class ReadConfig {
 	private String taiwan;
 	private String america;
 	private String japan;
+	private String baseJapan;
 	private String germany;
 	private String switzerland;
 	private String europe;
@@ -23,6 +24,7 @@ public class ReadConfig {
 		this.taiwan = config.get("taiwan");
 		this.america = config.get("america");
 		this.japan = config.get("japan");
+		this.baseJapan = config.get("baseJapan");
 		this.germany = config.get("germany");
 		this.switzerland = config.get("switzerland");
 		this.europe = config.get("europe");
@@ -53,6 +55,14 @@ public class ReadConfig {
 
 	public void setJapan(String japan) {
 		this.japan = japan;
+	}
+
+	public String getBaseJapan() {
+		return baseJapan;
+	}
+
+	public void setBaseJapan(String baseJapan) {
+		this.baseJapan = baseJapan;
 	}
 
 	public String getGermany() {
