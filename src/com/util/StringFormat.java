@@ -1,5 +1,8 @@
 package com.util;
-
+/**
+ * @author Pnoker
+ *
+ */
 public class StringFormat {
 	/**
 	 * 全角转半角

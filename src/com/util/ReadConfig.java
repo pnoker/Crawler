@@ -2,6 +2,10 @@ package com.util;
 
 import java.util.Map;
 
+/**
+ * @author Pnoker
+ *
+ */
 public class ReadConfig {
 	private String taiwan;
 	private String america;

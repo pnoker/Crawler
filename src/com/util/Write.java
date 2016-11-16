@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 
 import com.pojo.EarthQuake;
-
+/**
+ * @author Pnoker
+ *
+ */
 public class Write {
 	private String path;
 	private ProEntry proEntry = new ProEntry();

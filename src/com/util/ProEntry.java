@@ -9,12 +9,16 @@ import java.util.Date;
  * @author Pnoker
  * @mail peter-no@foxmail.com
  * @date 2016年11月16日
- * @description
+ * @description 处理每条地震信息转化成规定的数据格式，用于写入txt文件中
  */
 
 public class ProEntry {
 	DecimalFormat fnum = new DecimalFormat("##0.00");
 
+	/**
+	 * @param time
+	 * @return 時間戳
+	 */
 	public String proTime(String time) {
 		String re = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
@@ -33,6 +37,10 @@ public class ProEntry {
 		return re;
 	}
 
+	/**
+	 * @param longitude
+	 * @return 經度
+	 */
 	public String proLongitude(String longitude) {
 		String re = "";
 		float lo = Float.parseFloat(longitude.substring(0, longitude.indexOf("°")));
@@ -44,6 +52,10 @@ public class ProEntry {
 		return re;
 	}
 
+	/**
+	 * @param latitude
+	 * @return 緯度
+	 */
 	public String proLatitude(String latitude) {
 		String re = "";
 		float la = Float.parseFloat(latitude.substring(0, latitude.indexOf("°")));
@@ -55,6 +67,10 @@ public class ProEntry {
 		return re;
 	}
 
+	/**
+	 * @param depth
+	 * @return 震深0~100
+	 */
 	public String proDepth(String depth) {
 		String re = "";
 		float de = Float.parseFloat(depth.split(" ")[0]);
@@ -62,6 +78,10 @@ public class ProEntry {
 		return re;
 	}
 
+	/**
+	 * @param mag
+	 * @return 震級0~10
+	 */
 	public String proMag(float mag) {
 		String re = "";
 		float ma = mag;
