@@ -1,11 +1,8 @@
 package com.location;
 
-import java.io.IOException;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.core.DecoratingClassLoader;
 
 import com.pojo.Detail;
 import com.util.StringFormat;
@@ -22,7 +19,6 @@ public class DetailJapan {
 		Document doc = Jsoup.connect(url).timeout(20000).get();
 		Element table = doc.getElementById("infobox");
 		Element td = table.select("td").first();
-		Element br = td.select("br").first();
 		StringFormat sf = new StringFormat();
 		String loca = sf.ToDBC(td.text()).substring(sf.ToDBC(td.text()).indexOf("("),
 				sf.ToDBC(td.text()).indexOf(")") + 1);

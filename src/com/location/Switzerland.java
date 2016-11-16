@@ -7,10 +7,12 @@ import org.jsoup.select.Elements;
 
 import com.pojo.EarthQuake;
 import com.util.OperationEth;
+import com.util.Write;
 
 public class Switzerland {
 	public void content(String url) throws Exception {
 		OperationEth operationEth = new OperationEth();
+		Write write = new Write();
 		Document doc2 = Jsoup.connect(url).timeout(30000).get();
 		Element table = doc2.getElementsByClass("eq_list").first();
 		Element tbody = table.select("tbody").first();
@@ -38,6 +40,7 @@ public class Switzerland {
 				EarthQuake earthQuake = new EarthQuake(placeName, latitude, longitude, mag, depth, time);
 				if (!operationEth.compare("switzerland", earthQuake)) {
 					operationEth.insert("switzerland", earthQuake);
+					write.write("switzerland", earthQuake);
 				}
 				operationEth.printEth((n + 1), earthQuake);
 			}

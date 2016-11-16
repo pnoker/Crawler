@@ -9,10 +9,12 @@ import com.pojo.Detail;
 import com.pojo.EarthQuake;
 import com.util.OperationEth;
 import com.util.StringFormat;
+import com.util.Write;
 
 public class Japan {
 	public void content(String url) throws Exception {
 		OperationEth operationEth = new OperationEth();
+		Write write = new Write();
 		StringFormat sf = new StringFormat();
 		Document doc = Jsoup.connect(url).timeout(20000).get();
 		Element info = doc.getElementById("info");
@@ -38,6 +40,7 @@ public class Japan {
 				EarthQuake earthQuake = new EarthQuake(placeName, latitude, longitude, mag, depth, time);
 				if (!operationEth.compare("japan", earthQuake)) {
 					operationEth.insert("japan", earthQuake);
+					write.write("japan", earthQuake);
 				}
 				operationEth.printEth((n + 1), earthQuake);
 			}

@@ -1,7 +1,6 @@
 package com.util;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.pojo.EarthQuake;
 
@@ -28,6 +27,10 @@ public class OperationEth {
 		conn.executeUpdate(sql);
 		conn.free();
 		System.out.println("\n新增一条地震信息:");
+	}
+	
+	public void write(EarthQuake earthQuake){
+		
 	}
 
 	/**

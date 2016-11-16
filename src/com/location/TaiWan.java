@@ -10,6 +10,7 @@ import org.jsoup.select.Elements;
 
 import com.pojo.EarthQuake;
 import com.util.OperationEth;
+import com.util.Write;
 
 public class TaiWan {
 
@@ -17,6 +18,7 @@ public class TaiWan {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
 		String year = sdf.format(new Date());
 		OperationEth operationEth = new OperationEth();
+		Write write = new Write();
 		Document doc2 = Jsoup.connect(url).timeout(20000).get();
 		Element table = doc2.getElementById("gvEvent");
 		Element tbody = table.select("tbody").first();
@@ -34,6 +36,7 @@ public class TaiWan {
 				EarthQuake earthQuake = new EarthQuake(placeName, latitude, longitude, mag, depth, time);
 				if (!operationEth.compare("taiwan", earthQuake)) {
 					operationEth.insert("taiwan", earthQuake);
+					write.write("taiwan", earthQuake);
 				}
 				operationEth.printEth((n + 1), earthQuake);
 			}

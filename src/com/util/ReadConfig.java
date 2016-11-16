@@ -13,6 +13,7 @@ public class ReadConfig {
 	private String driver;
 	private String url;
 	private String validationQuery;
+	private String path;
 
 	public ReadConfig() {
 		Map<String, String> config = null;
@@ -31,6 +32,7 @@ public class ReadConfig {
 		this.driver = config.get("driver");
 		this.url = config.get("url");
 		this.validationQuery = config.get("validationQuery");
+		this.path = config.get("path");
 	}
 
 	public String getTaiwan() {
@@ -113,4 +115,11 @@ public class ReadConfig {
 		this.validationQuery = validationQuery;
 	}
 
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 }

@@ -2,18 +2,14 @@ package com.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.xml.crypto.Data;
 
 public class DataBaseConnect {
 	private Connection conn = null;
 	public Statement stmt = null;
 	private ResultSet rs = null;
-	private PreparedStatement ps = null;
 
 	public DataBaseConnect() {
 		ReadConfig data = new ReadConfig();
