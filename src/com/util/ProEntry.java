@@ -43,11 +43,15 @@ public class ProEntry {
 	 */
 	public String proLongitude(String longitude) {
 		String re = "";
-		float lo = Float.parseFloat(longitude.substring(0, longitude.indexOf("°")));
-		if (longitude.contains("W")) {
-			re = "-" + fnum.format(lo).toString();
-		} else {
-			re = "" + fnum.format(lo).toString();
+		try {
+			float lo = Float.parseFloat(longitude.substring(0, longitude.indexOf("°")));
+			if (longitude.contains("W")) {
+				re = "-" + fnum.format(lo).toString();
+			} else {
+				re = "" + fnum.format(lo).toString();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return re;
 	}
@@ -58,11 +62,15 @@ public class ProEntry {
 	 */
 	public String proLatitude(String latitude) {
 		String re = "";
-		float la = Float.parseFloat(latitude.substring(0, latitude.indexOf("°")));
-		if (latitude.contains("S")) {
-			re = "-" + fnum.format(la).toString();
-		} else {
-			re = "" + fnum.format(la).toString();
+		try {
+			float la = Float.parseFloat(latitude.substring(0, latitude.indexOf("°")));
+			if (latitude.contains("S")) {
+				re = "-" + fnum.format(la).toString();
+			} else {
+				re = "" + fnum.format(la).toString();
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return re;
 	}
@@ -73,8 +81,12 @@ public class ProEntry {
 	 */
 	public String proDepth(String depth) {
 		String re = "";
-		float de = Float.parseFloat(depth.split(" ")[0]);
-		re = "" + de;
+		try {
+			float de = Float.parseFloat(depth.split(" ")[0]);
+			re = "" + de;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		return re;
 	}
 
