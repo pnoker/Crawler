@@ -21,7 +21,7 @@ public class ProEntry {
 	 */
 	public String proTime(String time) {
 		String re = "";
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		time = time.replace("/", "-");
 		String[] st = time.split(":");
 		if (st.length < 3) {
@@ -33,7 +33,8 @@ public class ProEntry {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		re = "" + data.getTime();
+		System.out.println(sdf.format(data));
+		re = "" + (data.getTime()/1000);
 		return re;
 	}
 
@@ -99,5 +100,20 @@ public class ProEntry {
 		float ma = mag;
 		re = "" + ma;
 		return re;
+	}
+
+	public static void main(String[] args) {
+		ProEntry proEntry = new ProEntry();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = new Date();
+		System.out.println("系统当前时间为：");
+
+		System.out.println(sdf.format(date));
+		System.out.println("转换为时间戳：");
+		System.out.println(proEntry.proTime(sdf.format(date)));
+		System.out.println(sdf.format(date));
+		System.out.println(date.getTime());
+		long time = new Long("1479361714000");
+		System.out.println(sdf.format(time));
 	}
 }
