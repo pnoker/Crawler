@@ -17,7 +17,8 @@ public class ReadConfig {
 	private String driver;
 	private String url;
 	private String validationQuery;
-	private String path;
+	private String linuxPath;
+	private String winPath;
 
 	public ReadConfig() {
 		Map<String, String> config = null;
@@ -36,7 +37,8 @@ public class ReadConfig {
 		this.driver = config.get("driver");
 		this.url = config.get("url");
 		this.validationQuery = config.get("validationQuery");
-		this.path = config.get("path");
+		this.linuxPath = config.get("linuxPath");
+		this.winPath = config.get("winPath");
 	}
 
 	public String getTaiwan() {
@@ -119,11 +121,20 @@ public class ReadConfig {
 		this.validationQuery = validationQuery;
 	}
 
-	public String getPath() {
-		return path;
+	public String getLinuxPath() {
+		return linuxPath;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
+	public void setLinuxPath(String linuxPath) {
+		this.linuxPath = linuxPath;
 	}
+
+	public String getWinPath() {
+		return winPath;
+	}
+
+	public void setWinPath(String winPath) {
+		this.winPath = winPath;
+	}
+
 }
